@@ -1,11 +1,11 @@
-import { IGaleriaService } from './../contracts/iGaleriaService';
-import { injectable, inject } from 'tsyringe';
+import { IPodcastService } from './../contracts/iPodcastService';
+import { injectable, inject } from "tsyringe";
 import { Request, Response } from "express";
 
 @injectable()
-export class GaleriaController {
+export class PodcastController {
 
-    constructor(@inject('IGaleriaService') private _service: IGaleriaService){
+    constructor(@inject('IPodcastService') private _service: IPodcastService){
     }
 
     async get(request: Request, response: Response){

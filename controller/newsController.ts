@@ -1,12 +1,11 @@
-import { NewsService } from "../services/newsService";
+import { INewsService } from './../contracts/iNewsService';
+import { injectable, inject } from "tsyringe";
 import { Request, Response } from "express";
 
-class NewsController {
-    
-    private _service: NewsService;
+@injectable()
+export class NewsController {
 
-    constructor(){
-        this._service = new NewsService();
+    constructor(@inject('INewsService') private _service: INewsService){
     }
 
     async get(request: Request, response: Response){
@@ -30,5 +29,3 @@ class NewsController {
         }
     }
 }
-
-export default new NewsController();
